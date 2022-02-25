@@ -1,38 +1,125 @@
-.App {
+/*Monton*/
+
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+/*Poppins*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/*Raleway*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --main-color: hsl(87, 23%, 93%);
+  --dark-gray: hsl(0, 0%, 34%);
+  --gray: hsl(180, 4%, 65%);
+  --orange: hsl(14, 69%, 50%);
+}
+
+body {
+  background-color: var(--main-color);
+  
+}
+
+.app {
+  padding: 2rem 1.5rem;
+}
+
+.title {
   text-align: center;
+  padding-top: 1rem;
+  font-family: "Monton";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  color: var(--dark-gray);
+  text-align: center;
+  font-size: 0.6rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (min-width: 65rem) {
+  .app {
+    max-width: 1080px;
+    margin: 0 auto;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+}
+.date {
+  color: var(--gray);
+  font-size: 0.8rem;
 }
 
-.App-link {
-  color: #61dafb;
+.social-icons {
+  color: var(--gray);
+  display: flex;
+  gap: 1.4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mobil-menu {
+  display: none;
+  color: var(--gray);
 }
+
+@media (max-width: 40rem) {
+  .mobil-menu, .mobil-menu > * {
+    display: block;
+  }
+ .social-icons {
+   display: none;
+ }
+}
+
