@@ -11,7 +11,7 @@ export default function Navbar() {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'Jule',
     'August', 'September', 'Octobr', 'November', 'December'];
-    let date = new Date;
+    let date = new Date();
     let TodaysDate = `${days[date.getDay()]} ${months[date.getMonth()]} ${date.getDate()},${date.getFullYear()}`
     return (
     <nav className="navbar">
