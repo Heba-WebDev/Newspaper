@@ -7,6 +7,7 @@ import { FaYoutube } from "react-icons/fa"
 import { GiHamburgerMenu } from "react-icons/gi"
 
 
+
 export default function Navbar() {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'Jule',

@@ -75,16 +75,17 @@ body {
   padding: 2rem 1.5rem;
 }
 
-.title {
+.app .title {
   text-align: center;
   padding-top: 1rem;
   font-family: "Monton";
 }
 
-h3 {
+.app h3 {
   color: var(--dark-gray);
   text-align: center;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
+  color: var(--gray);
 }
 
 @media (min-width: 65rem) {
@@ -125,5 +126,102 @@ h3 {
 
 img {
   max-width: 100%;
-  width: 500px;
 }
+
+.mainheadline-wrapper {
+padding: 2.3rem 0;
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+}
+
+.headline-title {
+  color: var(--dark-gray);
+  font-family: "poppins";
+}
+
+.headline-description {
+  color: var(--gray);
+  font-family: "poppins";
+}
+.headline-time {
+  color: var(--gray);
+  opacity: 0.7;
+}
+
+hr {
+  opacity: 0.5;
+}
+
+.headlines-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.headline-text {
+  columns: var(--dark-gray);
+  font-family: "poppins";
+  opacity: 0.7;
+  padding-bottom: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.headline-img > img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.news-wrapper .latest {
+  color: var(--orange);
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: "Raleway";
+  padding: 0.5rem 0;
+}
+
+.economy-inner-wrapper {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1rem;
+ 
+}
+
+.economy-item h2 {
+  padding-top: 0.7rem;
+  font-size: 1rem;
+  color: var(--gray);
+  font-family: "poppins";
+}
+
+.economy-wrapper > .economy {
+  color: var(--dark-gray);
+  font-family: "poppins";
+  font-weight: 700;
+  
+}
+
+.images-wrapper {
+  cursor: grab;
+  overflow: hidden;
+}
+.inner-images {
+display: flex;
+min-height: 100%;
+min-width: 100%;
+
+
+}
+
+
+.item{
+ min-height: 100%;
+min-width: 70%;
+flex-basis: content;
+flex: 1;
+padding: 0.5rem;
+}
+
