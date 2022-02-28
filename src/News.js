@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+
 
 export default function News() {
 
     
         
-    // const [width, setWidth] = React.useState(0);
-    // const imagesWidth = useRef();
+    const [width, setWidth] = React.useState(0);
+    const imagesWrapper = React.useRef();
 
-    
+    useEffect(() => {
+       setWidth(imagesWrapper.current.scrollWidth-imagesWrapper.current.offsetWidth)
+       
+    }, [])
+   
 
     const [mainHeadline, setMainHeadlines] = React.useState([]);
     const [headlines, setHeadlines] = React.useState([]);
@@ -30,17 +34,17 @@ export default function News() {
         fetch('https://newsapi.org/v2/everything?q=economy&apiKey=27c9e748acd248c4981c2ab8eec5285e')
         .then(response =>  response.json())
         .then(data => {
-            setEconomy(data.articles.slice(0,4))
+            setEconomy(data.articles.slice(9,13))
         })
         .catch(error => console.error("error"))
     }, [])
 
     useEffect(() => {
-        fetch('https://newsapi.org/v2/everything?q=images&apiKey=27c9e748acd248c4981c2ab8eec5285e')
+        fetch('https://newsapi.org/v2/everything?q=travel&apiKey=27c9e748acd248c4981c2ab8eec5285e')
         .then(response =>  response.json())
         .then(data => {
             setImages(data.articles.slice(2,8))
-        })
+        },[])
         .catch(error => console.error("error"))
     }, [])
     
@@ -101,9 +105,9 @@ export default function News() {
 
        <hr></hr>
 
-       <motion.div className="images-wrapper">
+       <motion.div className="images-wrapper" ref={imagesWrapper}>
 
-      <motion.div drag="x" dragConstraints={{right: 0}} className="inner-images">
+      <motion.div drag="x" dragConstraints={{right:0, left:-width}} className="inner-images"  whileTap={{cursor: "grabbing"}}>
 
        {images.map((image) => {
         return(
