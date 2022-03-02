@@ -9,15 +9,20 @@ export default function News() {
     const [width, setWidth] = React.useState(0);
     const imagesWrapper = React.useRef();
 
+
     useEffect(() => {
-       setWidth(imagesWrapper.current.scrollWidth-imagesWrapper.current.offsetWidth)
        
-    }, [])
-   
+      
+        setWidth(imagesWrapper.current.scrollWidth - imagesWrapper.current.offsetWidth)
+           
+        })
+
 
     const [mainHeadline, setMainHeadlines] = React.useState([]);
     const [headlines, setHeadlines] = React.useState([]);
     const [economy, setEconomy] = React.useState([]);
+    const [tech, setTech] = React.useState([]);
+    const [sports, setSports] = React.useState([]);
     const [images, setImages] = React.useState([]);
     
     useEffect(() => {
@@ -34,7 +39,25 @@ export default function News() {
         fetch('https://newsapi.org/v2/everything?q=economy&apiKey=27c9e748acd248c4981c2ab8eec5285e')
         .then(response =>  response.json())
         .then(data => {
-            setEconomy(data.articles.slice(9,13))
+            setEconomy(data.articles.slice(5,9))
+        })
+        .catch(error => console.error("error"))
+    }, [])
+
+    useEffect(() => {
+        fetch('https://newsapi.org/v2/everything?q=tech&apiKey=27c9e748acd248c4981c2ab8eec5285e')
+        .then(response =>  response.json())
+        .then(data => {
+            setTech(data.articles.slice(0,4))
+        })
+        .catch(error => console.error("error"))
+    }, [])
+
+    useEffect(() => {
+        fetch('https://newsapi.org/v2/everything?q=sports&apiKey=27c9e748acd248c4981c2ab8eec5285e')
+        .then(response =>  response.json())
+        .then(data => {
+            setSports(data.articles.slice(0,4))
         })
         .catch(error => console.error("error"))
     }, [])
@@ -51,6 +74,8 @@ export default function News() {
  
 
     
+
+
     return (
         <div className="news-wrapper">
             
@@ -105,9 +130,47 @@ export default function News() {
 
        <hr></hr>
 
-       <motion.div className="images-wrapper" ref={imagesWrapper}>
+       <div className="tech-wrapper">
+           <h2 className="tech">Tech</h2>
+          <div className="tech-inner-wrapper">
+                {tech.map((headline) => {
+                 return (
+                   <div className="tech-item">
+                   <img src={headline.urlToImage} />
+                    <h2 className="tech-title">{headline.title}</h2>
+                   </div>
+               )}
+               )}
+            </div>
+       </div>
 
-      <motion.div drag="x" dragConstraints={{right:0, left:-width}} className="inner-images"  whileTap={{cursor: "grabbing"}}>
+       <hr></hr>
+
+
+       <div className="sports-wrapper">
+           <h2 className="sports">Sports</h2>
+          <div className="sports-inner-wrapper">
+                {sports.map((headline) => {
+                 return (
+                   <div className="sports-item">
+                   <img src={headline.urlToImage} />
+                    <h2 className="sports-title">{headline.title}</h2>
+                   </div>
+               )}
+               )}
+            </div>
+       </div>
+
+       <hr></hr>
+
+       <motion.div className="images-wrapper" ref={imagesWrapper}>
+       <motion.h2 className="photosOfTheDay">Photos of the day</motion.h2>
+      <motion.div 
+      drag="x" 
+      dragConstraints
+      dragConstraints={{right:0, left:-width}} 
+      className="inner-images"  
+      whileTap={{cursor: "grabbing"}} >
 
        {images.map((image) => {
         return(

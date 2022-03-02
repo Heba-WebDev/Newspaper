@@ -183,21 +183,28 @@ hr {
   padding: 0.5rem 0;
 }
 
-.economy-inner-wrapper {
+.economy-inner-wrapper,
+.sports-inner-wrapper,
+.tech-inner-wrapper  {
  display: grid;
  grid-template-columns: repeat(2, 1fr);
  gap: 1rem;
  
 }
 
-.economy-item h2 {
+.economy-item h2,
+.tech-item h2,
+.sports-item h2 {
   padding-top: 0.7rem;
   font-size: 1rem;
   color: var(--gray);
   font-family: "poppins";
 }
 
-.economy-wrapper > .economy {
+.economy-wrapper > .economy,
+.tech-wrapper > .tech,
+.sports-wrapper > .sports  {
+  padding-bottom: 0.7rem;
   color: var(--dark-gray);
   font-family: "poppins";
   font-weight: 700;
@@ -212,12 +219,13 @@ hr {
 display: flex;
 min-height: 100%;
 min-width: 100%;
-
+cursor: grab;
 
 }
 
 
 .item{
+  cursor: grab;
  min-height: 100%;
 min-width: 70%;
 flex-basis: content;
@@ -225,3 +233,11 @@ flex: 1;
 padding: 0.5rem;
 }
 
+.photosOfTheDay {
+  font-family: "Raleway";
+  color: var(--gray);
+  padding: 0.7rem 0;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
