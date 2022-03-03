@@ -39,7 +39,10 @@ export default function News() {
 
     useEffect(() => {
         fetch('https://newsapi.org/v2/everything?q=economy&apiKey=27c9e748acd248c4981c2ab8eec5285e')
-        .then(response =>  response.json())
+        .then(response =>  {
+            response.setHeader("Access-Control-Allow-Origin", "*")
+            response.json()
+        })
         .then(data => {
             setEconomy(data.articles.slice(5,9))
             changeWidth()
@@ -49,7 +52,10 @@ export default function News() {
 
     useEffect(() => {
         fetch('https://newsapi.org/v2/everything?q=tech&apiKey=27c9e748acd248c4981c2ab8eec5285e')
-        .then(response =>  response.json())
+        .then(response => {
+            response.setHeader("Access-Control-Allow-Origin", "*")
+            response.json()
+        })
         .then(data => {
             setTech(data.articles.slice(0,4))
             changeWidth()
@@ -59,7 +65,10 @@ export default function News() {
 
     useEffect(() => {
         fetch('https://newsapi.org/v2/everything?q=sports&apiKey=27c9e748acd248c4981c2ab8eec5285e')
-        .then(response =>  response.json())
+        .then(response =>  {
+            response.setHeader("Access-Control-Allow-Origin", "*")
+            response.json()
+        })
         .then(data => {
             setSports(data.articles.slice(0,4))
         })
@@ -68,7 +77,10 @@ export default function News() {
 
     useEffect(() => {
         fetch('https://newsapi.org/v2/everything?q=pictures&apiKey=27c9e748acd248c4981c2ab8eec5285e')
-        .then(response =>  response.json())
+        .then(response =>  {
+            response.setHeader("Access-Control-Allow-Origin", "*")
+            response.json()
+        })
         .then(data => {
             setImages(data.articles.slice(0,6))
         })
