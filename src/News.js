@@ -15,7 +15,7 @@ export default function News() {
       
         setWidth(imagesWrapper.current.scrollWidth - imagesWrapper.current.offsetWidth)
            
-        },[])
+        })
 
 
     const [mainHeadline, setMainHeadlines] = React.useState([]);
