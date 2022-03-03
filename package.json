@@ -1,6 +1,6 @@
 {
   "homepage": "http://Heba-WebDev.github.io/Newspaper",
-  "proxy":"heba-webdev.github.io",
+  "proxy":"http://heba-webdev.github.io",
   "name": "newspaper-app",
   "version": "0.1.0",
   "private": true,
