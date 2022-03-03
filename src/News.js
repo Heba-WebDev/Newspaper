@@ -66,10 +66,10 @@ export default function News() {
     }, [])
 
     useEffect(() => {
-        fetch('https://newsapi.org/v2/everything?q=travel&apiKey=27c9e748acd248c4981c2ab8eec5285e')
+        fetch('https://newsapi.org/v2/everything?q=pictures&apiKey=27c9e748acd248c4981c2ab8eec5285e')
         .then(response =>  response.json())
         .then(data => {
-            setImages(data.articles.slice(2,8))
+            setImages(data.articles.slice(0,6))
         })
         .catch(error => console.error("error"))
     }, [])
