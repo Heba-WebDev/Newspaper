@@ -52,6 +52,7 @@ export default function News() {
         .then(response =>  response.json())
         .then(data => {
             setTech(data.articles.slice(0,4))
+            changeWidth()
         })
         .catch(error => console.error("error"))
     }, [])
