@@ -15,7 +15,7 @@ export default function News() {
       
         setWidth(imagesWrapper.current.scrollWidth - imagesWrapper.current.offsetWidth)
            
-        })
+        },[])
 
 
     const [mainHeadline, setMainHeadlines] = React.useState([]);
@@ -87,7 +87,7 @@ export default function News() {
                     <div className="mainheadline-wrapper">
 
                     
-                    <img src={headline.urlToImage} />
+                    <img src={headline.urlToImage} alt={headline.description}/>
                     <h2 className="headline-title" key={index}>{headline.title}</h2>
                     <p className="headline-description">{headline.description}</p>
                     <small className="headline-time">{headline.publishedAt}</small>
@@ -120,7 +120,7 @@ export default function News() {
                 {economy.map((headline) => {
                  return (
                    <div className="economy-item">
-                   <img src={headline.urlToImage} />
+                   <img src={headline.urlToImage} alt={headline.description}/>
                     <h2 className="economy-title">{headline.title}</h2>
                    </div>
                )}
@@ -136,7 +136,7 @@ export default function News() {
                 {tech.map((headline) => {
                  return (
                    <div className="tech-item">
-                   <img src={headline.urlToImage} />
+                   <img src={headline.urlToImage} alt={headline.description}/>
                     <h2 className="tech-title">{headline.title}</h2>
                    </div>
                )}
@@ -153,7 +153,7 @@ export default function News() {
                 {sports.map((headline) => {
                  return (
                    <div className="sports-item">
-                   <img src={headline.urlToImage} />
+                   <img src={headline.urlToImage} alt={headline.description}/>
                     <h2 className="sports-title">{headline.title}</h2>
                    </div>
                )}
@@ -167,7 +167,6 @@ export default function News() {
        <motion.h2 className="photosOfTheDay">Photos of the day</motion.h2>
       <motion.div 
       drag="x" 
-      dragConstraints
       dragConstraints={{right:0, left:-width}} 
       className="inner-images"  
       whileTap={{cursor: "grabbing"}} >
@@ -175,7 +174,7 @@ export default function News() {
        {images.map((image) => {
         return(
             <motion.div className="item">
-            <img src={image.urlToImage} />
+            <img src={image.urlToImage} alt={image.description}/>
             </motion.div>
         
         )
