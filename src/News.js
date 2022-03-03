@@ -8,14 +8,9 @@ export default function News() {
         
     const [width, setWidth] = React.useState(0);
     const imagesWrapper = React.useRef();
+    
 
-
-    useEffect(() => {
-       
-      
-        setWidth(imagesWrapper.current.scrollWidth - imagesWrapper.current.offsetWidth)
-           
-        })
+ 
 
 
     const [mainHeadline, setMainHeadlines] = React.useState([]);
@@ -24,6 +19,10 @@ export default function News() {
     const [tech, setTech] = React.useState([]);
     const [sports, setSports] = React.useState([]);
     const [images, setImages] = React.useState([]);
+
+    function changeWidth() {
+            setWidth(imagesWrapper.current.scrollWidth - imagesWrapper.current.offsetWidth)
+    }
     
     useEffect(() => {
         fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=27c9e748acd248c4981c2ab8eec5285e')
@@ -31,15 +30,19 @@ export default function News() {
         .then(data => {
             setMainHeadlines(data.articles.slice(0,1))
             setHeadlines(data.articles.slice(1,9))
+           changeWidth()
         })
         .catch(error => console.error("error"))
     }, [])
+
+    
 
     useEffect(() => {
         fetch('https://newsapi.org/v2/everything?q=economy&apiKey=27c9e748acd248c4981c2ab8eec5285e')
         .then(response =>  response.json())
         .then(data => {
             setEconomy(data.articles.slice(5,9))
+            changeWidth()
         })
         .catch(error => console.error("error"))
     }, [])
@@ -67,7 +70,7 @@ export default function News() {
         .then(response =>  response.json())
         .then(data => {
             setImages(data.articles.slice(2,8))
-        },[])
+        })
         .catch(error => console.error("error"))
     }, [])
     

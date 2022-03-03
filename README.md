@@ -1,10 +1,9 @@
-# Getting Started with Create React App
+# Newspaper [React app]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Link to the app
 
-In the project directory, you can run:
+Open [http://localhost:3000]
 
 ### `npm start`
 
